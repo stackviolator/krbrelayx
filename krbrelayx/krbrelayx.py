@@ -46,8 +46,8 @@ from impacket.examples import logger
 from impacket.examples.ntlmrelayx.attacks import PROTOCOL_ATTACKS
 from impacket.examples.ntlmrelayx.utils.targetsutils import TargetsProcessor, TargetsFileWatcher
 
-from lib.servers import SMBRelayServer, HTTPKrbRelayServer, DNSRelayServer
-from lib.utils.config import KrbRelayxConfig
+from krbrelayx.lib.servers import SMBRelayServer, HTTPKrbRelayServer, DNSRelayServer
+from krbrelayx.lib.utils.config import KrbRelayxConfig
 
 RELAY_SERVERS = ( SMBRelayServer, HTTPKrbRelayServer, DNSRelayServer )
 
@@ -197,7 +197,7 @@ def main():
 
     # Let's register the protocol clients we have
     # ToDo: Do this better somehow
-    from lib.clients import PROTOCOL_CLIENTS
+    from krbrelayx.lib.clients import PROTOCOL_CLIENTS
 
 
     if options.codec is not None:

@@ -16,7 +16,7 @@ from impacket import ntlm, LOG
 from impacket.smbserver import outputToJohnFormat, writeJohnOutputToFile
 from impacket.examples.ntlmrelayx.utils.targetsutils import TargetsProcessor
 from impacket.examples.ntlmrelayx.servers import HTTPRelayServer
-from lib.utils.kerberos import get_kerberos_loot
+from krbrelayx.lib.utils.kerberos import get_kerberos_loot
 
 class HTTPKrbRelayServer(HTTPRelayServer):
     """

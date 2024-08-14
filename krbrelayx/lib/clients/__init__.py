@@ -76,7 +76,7 @@ class ProtocolClient:
         # Charged of keeping connection alive
         raise RuntimeError('Virtual Function')
 
-for file in pkg_resources.resource_listdir('lib', 'clients'):
+for file in pkg_resources.resource_listdir('krbrelayx.lib', 'clients'):
     if file.find('__') >=0 or os.path.splitext(file)[1] == '.pyc':
         continue
     __import__(__package__ + '.' + os.path.splitext(file)[0])

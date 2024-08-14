@@ -39,8 +39,8 @@ from impacket.examples.ntlmrelayx.servers.socksserver import activeConnections
 from impacket.examples.ntlmrelayx.utils.targetsutils import TargetsProcessor
 from impacket.smbserver import getFileTime
 from pyasn1.codec.der import decoder, encoder
-from lib.utils.kerberos import get_kerberos_loot
-from lib.utils.spnego import GSSAPIHeader_SPNEGO_Init2, GSSAPIHeader_SPNEGO_Init, MechTypes, MechType, TypesMech, NegTokenResp, NegResult, NegotiationToken
+from krbrelayx.lib.utils.kerberos import get_kerberos_loot
+from krbrelayx.lib.utils.spnego import GSSAPIHeader_SPNEGO_Init2, GSSAPIHeader_SPNEGO_Init, MechTypes, MechType, TypesMech, NegTokenResp, NegResult, NegotiationToken
 
 class SMBRelayServer(Thread):
     def __init__(self,config):

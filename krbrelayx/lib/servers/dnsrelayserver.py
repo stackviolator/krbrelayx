@@ -11,7 +11,7 @@ from dns.message import from_wire
 from impacket import ntlm, LOG
 from impacket.smbserver import outputToJohnFormat, writeJohnOutputToFile
 from impacket.examples.ntlmrelayx.utils.targetsutils import TargetsProcessor
-from lib.utils.kerberos import get_kerberos_loot, get_auth_data
+from krbrelayx.lib.utils.kerberos import get_kerberos_loot, get_auth_data
 
 from threading import Thread
 

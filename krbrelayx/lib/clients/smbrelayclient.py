@@ -18,7 +18,7 @@ import os
 from struct import unpack
 from socket import error as socketerror
 from impacket import LOG
-from lib.clients import ProtocolClient
+from krbrelayx.lib.clients import ProtocolClient
 from impacket.examples.ntlmrelayx.servers.socksserver import KEEP_ALIVE_TIMER
 from impacket.nt_errors import STATUS_SUCCESS, STATUS_ACCESS_DENIED, STATUS_LOGON_FAILURE
 from impacket.ntlm import NTLMAuthNegotiate, NTLMSSP_NEGOTIATE_ALWAYS_SIGN, NTLMAuthChallenge

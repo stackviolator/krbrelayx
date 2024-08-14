@@ -9,8 +9,8 @@ except ImportError:
     LOG.fatal("krbrelayx requires ldap3 > 2.0. To update, use: pip install ldap3 --upgrade")
     sys.exit(1)
 
-from lib.clients import ProtocolClient
-from lib.utils.kerberos import ldap_kerberos, ldap_kerberos_auth
+from krbrelayx.lib.clients import ProtocolClient
+from krbrelayx.lib.utils.kerberos import ldap_kerberos, ldap_kerberos_auth
 from impacket.nt_errors import STATUS_SUCCESS, STATUS_ACCESS_DENIED
 from impacket.ntlm import NTLMAuthChallenge, NTLMAuthNegotiate, NTLMSSP_NEGOTIATE_SIGN
 from impacket.spnego import SPNEGO_NegTokenResp

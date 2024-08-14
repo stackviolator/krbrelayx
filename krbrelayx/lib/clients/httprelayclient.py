@@ -24,8 +24,8 @@ import base64
 
 from struct import unpack
 from impacket import LOG
-from lib.clients import ProtocolClient
-from lib.utils.kerberos import build_apreq
+from krbrelayx.lib.clients import ProtocolClient
+from krbrelayx.lib.utils.kerberos import build_apreq
 from impacket.nt_errors import STATUS_SUCCESS, STATUS_ACCESS_DENIED
 from impacket.ntlm import NTLMAuthChallenge
 from impacket.spnego import SPNEGO_NegTokenResp

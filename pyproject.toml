@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+dynamic = ["version"]
+name = "krbrelayx"
+dependencies = [
+	"impacket",
+	"ldap3",
+	"dnspython",
+]
+requires-python = ">=3.6"
+authors = [
+	{name = "dirkjanm"}
+]
+description = "Kerberos unconstrained delegation abuse toolkit"
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["Kerberos", "Relay","SMB", "Delegation", "NTLM"]
+classifiers = [
+	"Intended Audience :: Developers",
+	"License :: GPL",
+	"Programming Language :: Python 3",
+	"Programming Language :: Python 3.6",
+	"Programming Language :: Python 3.7",
+	"Programming Language :: Python 3.8",
+	"Programming Language :: Python 3.9",
+	"Programming Language :: Python 3.10",
+	"Programming Language :: Python 3.11",
+	"Programming Language :: Python 3.12",
+]
+
+[project.scripts]
+krbrelayx = "krbrelayx.krbrelayx:main"
+addspn = "krbrelayx.addspn:main"
+dnstool = "krbrelayx.dnstool:main"
+
+[project.urls]
+Repository = "https://github.com/dirkjanm/krbrelayx"
+Issues = "https://github.com/dirkjanm/krbrelayx/issues"
+

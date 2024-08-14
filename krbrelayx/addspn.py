@@ -36,7 +36,7 @@ from impacket.krb5.kerberosv5 import getKerberosTGT, getKerberosTGS
 from impacket.krb5.types import Principal
 from impacket.krb5 import constants
 from ldap3 import NTLM, Server, Connection, ALL, LEVEL, BASE, MODIFY_DELETE, MODIFY_ADD, MODIFY_REPLACE, SASL, KERBEROS
-from lib.utils.kerberos import ldap_kerberos
+from krbrelayx.lib.utils.kerberos import ldap_kerberos
 import ldap3
 from ldap3.protocol.microsoft import security_descriptor_control
 

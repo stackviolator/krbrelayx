@@ -9,6 +9,7 @@ dependencies = [
 	"impacket",
 	"ldap3",
 	"dnspython",
+	"pycryptodome",
 ]
 requires-python = ">=3.6"
 authors = [
@@ -35,6 +36,7 @@ classifiers = [
 krbrelayx = "krbrelayx.krbrelayx:main"
 addspn = "krbrelayx.addspn:main"
 dnstool = "krbrelayx.dnstool:main"
+printerbug = "krbrelayx.printerbug:main"
 
 [project.urls]
 Repository = "https://github.com/dirkjanm/krbrelayx"

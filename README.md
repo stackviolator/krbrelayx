@@ -5,12 +5,24 @@ Requires [impacket](https://github.com/SecureAuthCorp/impacket), [ldap3](https:/
 It is recommended to install impacket from git directly to have the latest version available.
 
 More info about this toolkit available in my blog <https://dirkjanm.io/krbrelayx-unconstrained-delegation-abuse-toolkit/>. Information about Kerberos relaying in the follow-up blog <https://dirkjanm.io/relaying-kerberos-over-dns-with-krbrelayx-and-mitm6/>.
+# Installation
+All tools can be installed using a single `pipx` command
+
+```
+git clone https://https://github.com/stackviolator/krbrelayx
+cd krbrelayx
+pipx install .
+addspn --help
+dnstool --help
+printerbug --help
+krbrelayx --help
+```
 
 # Tools included
-## addspn.py
+## addspn
 This tool can add/remove/modify Service Principal Names on accounts in AD over LDAP.
 ```
-usage: addspn.py [-h] [-u USERNAME] [-p PASSWORD] [-t TARGET] -s SPN [-r] [-q]
+usage: addspn [-h] [-u USERNAME] [-p PASSWORD] [-t TARGET] -s SPN [-r] [-q]
                  [-a]
                  HOSTNAME
 
@@ -38,10 +50,10 @@ Main options:
                         attribute
 ```
 
-## dnstool.py
+## dnstool
 Add/modify/delete Active Directory Integrated DNS records via LDAP.
 ```
-usage: dnstool.py [-h] [-u USERNAME] [-p PASSWORD] [--forest] [--legacy] [--zone ZONE]
+usage: dnstool [-h] [-u USERNAME] [-p PASSWORD] [--forest] [--legacy] [--zone ZONE]
                   [--print-zones] [--tcp] [-k] [-dc-ip ip address] [-dns-ip ip address]
                   [-aesKey hex key] [-r TARGETRECORD]
                   [-a {add,modify,query,remove,resurrect,ldapdelete}] [-t {A}] [-d RECORDDATA]
@@ -82,11 +94,11 @@ Record options:
   --ttl TTL             TTL for record (default: 180)
 ```
 
-## printerbug.py
+## printerbug
 Simple tool to trigger SpoolService bug via RPC backconnect. Similar to [dementor.py](https://gist.github.com/3xocyte/cfaf8a34f76569a8251bde65fe69dccc). Thanks to @agsolino for implementing these RPC calls.
 
 ```
-usage: printerbug.py [-h] [-target-file file] [-port [destination port]]
+usage: printerbug [-h] [-target-file file] [-port [destination port]]
                      [-hashes LMHASH:NTHASH] [-no-pass]
                      target attackerhost
 
@@ -118,14 +130,14 @@ authentication:
                         when target is the NetBIOS name or Kerberos name and you cannot resolve it
 ```
 
-## krbrelayx.py
+## krbrelayx
 This tool has multiple use options:
 
 * **Kerberos relaying**: When no credentials are supplied, but at least one target is specified, krbrelayx will forward the Kerberos authentication to a matching target hostname, effectively relaying the authentication. How to get incoming Kerberos auth with a valid SPN is up to you, but you could use mitm6 for this.
 * **Unconstrained delegation abuse**: In this mode, krbrelayx will either decrypt and dump incoming TGTs embedded in authentication with unconstrained delegation, or immediately use the TGTs to authenticate to a target service. This requires that credentials for an account with unconstrained delegation are specified.
 
 ```
-usage: krbrelayx.py [-h] [-debug] [-t TARGET] [-tf TARGETSFILE] [-w] [-ip INTERFACE_IP] [-r SMBSERVER] [-l LOOTDIR]
+usage: krbrelayx [-h] [-debug] [-t TARGET] [-tf TARGETSFILE] [-w] [-ip INTERFACE_IP] [-r SMBSERVER] [-l LOOTDIR]
                     [-f {ccache,kirbi}] [-codec CODEC] [-no-smb2support] [-wh WPAD_HOST] [-wa WPAD_AUTH_NUM] [-6] [-p PASSWORD]
                     [-hp HEXPASSWORD] [-s USERNAME] [-hashes LMHASH:NTHASH] [-aesKey hex key] [-dc-ip ip address] [-e FILE]
                     [-c COMMAND] [--enum-local-admins] [--no-dump] [--no-da] [--no-acl] [--no-validate-privs]
